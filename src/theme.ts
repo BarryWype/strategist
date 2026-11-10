@@ -1,0 +1,87 @@
+// From pocket-quartermaster src/theme.ts, trimmed for the POC.
+
+export const colors = {
+  wood: '#8a5a35',
+  woodDark: '#5e3622',
+  woodLight: '#b0704a',
+  parchment: '#f4ead2',
+  parchmentDark: '#e9d9a6',
+  ink: '#3b2a1a',
+  muted: '#7a6650',
+  highlight: '#fff6a8',
+  danger: '#c0392b',
+  success: '#2f7d32',
+  gold: '#c99a00',
+  /** Bevel edges drawn over any fill colour, for the pixel-art frames. */
+  bevelLight: 'rgba(255,255,255,0.35)',
+  bevelDark: 'rgba(0,0,0,0.3)',
+};
+
+/** Border widths of the pixel-art frames: a dark outline, then a bevel inside it. */
+export const pixel = { outline: 3, bevel: 3 };
+
+export const fonts = {
+  /** Loaded in `app/_layout.tsx` from `assets/fonts/FantaisieArtistique.ttf`. */
+  body: 'FantaisieArtistique',
+  /** Body text and numbers, loaded from `@expo-google-fonts/alegreya`. */
+  serif: 'Alegreya_500Medium',
+  serifBold: 'Alegreya_700Bold',
+  /** Map labels. */
+  serifItalic: 'Alegreya_500Medium_Italic',
+};
+
+/** The wood & brass palette: dark wood frames, parchment surfaces, brass accents. */
+export const ui = {
+  outline: '#1E120A',
+  woodDeep: '#2A180D',
+  woodDark: '#3A2314',
+  woodMid: '#5A3820',
+  woodSeam: '#4E301B',
+  woodSelected: '#7A4A26',
+  brass: '#C9A04E',
+  brassDim: '#8A6A34',
+  brassLight: '#F6D98E',
+  parchment: '#F2E4C2',
+  parchmentShade: '#E6D3A8',
+  parchmentRule: '#B9A27A',
+  ink: '#3A2314',
+  inkMuted: '#6A4A2C',
+  onWood: '#F2E4C2',
+  onWoodMuted: '#C9B48A',
+  ember: '#B4471C',
+  emberLight: '#E07A3E',
+  emberDark: '#6E2A0E',
+  onEmber: '#FFF1DC',
+  good: '#2F6B32',
+  goodBg: '#DDE8C8',
+  bad: '#8A2E1C',
+  badBg: '#F2D3C2',
+  keyword: '#2E4E8A',
+  keywordBg: '#D3DCEE',
+  hp: '#4E9A3E',
+  hpLow: '#D98A2E',
+  xp: '#C9A04E',
+  gold: '#E8B83A',
+};
+
+/** The strategist's map: ink on parchment, framed in dark wood. */
+export const map = {
+  parchment: '#e9dcbf',
+  parchmentEdge: '#c9b48a',
+  chamber: '#e2d2ac',
+  ink: '#3b2a1a',
+  inkSoft: '#5a4630',
+  redInk: '#8e2a1c',
+  waxDark: '#5a1a10',
+  brass: '#b08a4a',
+  brassLight: '#d9b45a',
+  wood: '#1d1612',
+  woodLight: '#2a2019',
+  seam: '#6b5330',
+  onWood: '#efe4cc',
+  onWoodMuted: '#b9a88a',
+  onWax: '#f3e6c8',
+  wound: '#ff7b6b',
+  ember: '#e07a3f',
+  fog: '#5e4c36',
+};

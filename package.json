@@ -1,0 +1,106 @@
+{
+  "name": "strategist-poc",
+  "version": "0.1.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@expo-google-fonts/alegreya": "^0.4.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~58.0.22",
+    "expo-constants": "~58.0.13",
+    "expo-dev-client": "~58.0.18",
+    "expo-font": "~58.0.11",
+    "expo-linking": "~58.0.15",
+    "expo-router": "~58.0.29",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.1",
+    "react-native-svg": "15.16.0",
+    "seedrandom": "^3.0.5",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.16.21",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
+    "@types/react": "~19.3.0",
+    "@types/seedrandom": "^3.0.8",
+    "esbuild": "^0.28.2",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~58.0.4",
+    "jest": "^30.5.2",
+    "jest-expo": "~58.0.13",
+    "react-test-renderer": "19.3.0",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "test:logic": "jest --selectProjects logic",
+    "test:app": "jest --selectProjects app",
+    "test:changed": "jest -o",
+    "typecheck": "tsc --noEmit",
+    "sim:poc": "node scripts/sim/build.mjs && node sim-output/.build/sim.cjs",
+    "lint": "expo lint"
+  },
+  "private": true,
+  "jest": {
+    "projects": [
+      {
+        "displayName": "logic",
+        "testEnvironment": "node",
+        "transform": {
+          "^.+\\.(t|j)sx?$": [
+            "@swc/jest",
+            {
+              "jsc": {
+                "parser": {
+                  "syntax": "typescript",
+                  "tsx": true
+                },
+                "target": "es2022"
+              },
+              "module": {
+                "type": "commonjs"
+              }
+            }
+          ],
+          "^.+\\.(png|jpg|jpeg|gif|webp|svg|ttf|otf)$": "jest-expo/src/preset/assetFileTransformer.js"
+        },
+        "moduleNameMapper": {
+          "^@/(.*)$": "<rootDir>/src/$1"
+        },
+        "testMatch": [
+          "<rootDir>/src/game/**/*.test.ts",
+          "<rootDir>/src/content/**/*.test.ts"
+        ],
+        "testPathIgnorePatterns": [
+          "/node_modules/"
+        ]
+      },
+      {
+        "displayName": "app",
+        "preset": "jest-expo",
+        "setupFiles": [
+          "./jest.setup.ts"
+        ],
+        "testMatch": [
+          "<rootDir>/src/app/**/*.test.ts",
+          "<rootDir>/src/app/**/*.test.tsx",
+          "<rootDir>/src/components/**/*.test.ts",
+          "<rootDir>/src/components/**/*.test.tsx",
+          "<rootDir>/src/store/**/*.test.ts",
+          "<rootDir>/src/store/**/*.test.tsx"
+        ],
+        "testPathIgnorePatterns": [
+          "/node_modules/"
+        ]
+      }
+    ]
+  }
+}
